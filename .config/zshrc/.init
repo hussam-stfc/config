@@ -11,3 +11,7 @@ SAVEHIST=2000
 setopt autocd extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
+
+# Set up arrow keys
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
