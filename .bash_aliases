@@ -5,7 +5,7 @@ alias .a="$EDITOR $RC"
 
 # Modern replacements
 alias bat="batcat"
-alias cat="bat -p"
+alias cat="bat -pp" # --plain --paging=never
 
 # grep
 alias grep='grep --color=auto'
