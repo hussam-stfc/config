@@ -1,0 +1,22 @@
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/wpk97179/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=2000
+setopt autocd extendedglob
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# Add entries to PATH
+
+# Set PATH so it includes user's private bin if it exists
+    PATH="$HOME/bin:$PATH"
+# Set PATH so it includes user's private bin if it exists
+    PATH="$HOME/.local/bin:$PATH"
+# Add Snap to PATH
+    PATH="/snap/bin:$PATH"

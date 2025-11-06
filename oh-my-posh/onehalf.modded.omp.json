@@ -1,0 +1,126 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "background": "#282c34",
+    "black": "#282c34",
+    "blue": "#89B4FA",
+    "closer": "p:os",
+    "cyan": "#56b6c2",
+    "foreground": "#dcdfe4",
+    "green": "#98c379",
+    "lavender": "#B7BDF8",
+    "magenta": "#c678dd",
+    "os": "#ACB0BE",
+    "pink": "#F5BDE6",
+    "red": "#e06c75",
+    "ubuntu": "#e06c75",
+    "white": "#dcdfe4",
+    "windows": "#729cee",
+    "yellow": "#e5c07b"
+  },
+  "terminal_background": "p:background",
+  "console_title_template": "{{ if {{ .UserName }}@{{ .HostName }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\n",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_worktree_count": true
+          },
+          "template": "{{ if or (.Working.Changed) (.Staging.Changed) }}<p:magenta>{{ .HEAD }}</>{{ else }}<p:os>{{ .HEAD }}</>{{ end }}{{if (gt .StashCount 0) }}<p:magenta> (\uf1C0 {{ .StashCount }})</>{{end}}{{ if (gt .Ahead 0)}}<p:cyan> {{ .BranchStatus }}</>{{ end }}{{ if (gt .Behind 0)}}<p:cyan>{{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }} <p:green>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <p:red>{{ .Working.String }}</>{{ end }}",
+          "type": "git",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if eq .OS \"ubuntu\" }}<p:ubuntu>{{ else }}<p:windows>{{ end }}{{.Icon}} </>",
+          "foreground": "p:os",
+          "type": "os",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "foreground": "p:lavender",
+          "type": "session",
+          "style": "plain"
+        },
+
+
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": ":{{ .Name }}: ",
+          "foreground": "p:os",
+          "type": "shell",
+          "style": "plain"
+	},
+
+        {
+          "properties": {
+            "cache_duration": "none",
+            "folder_icon": "..",
+            "style": "agnoster_short",
+	    "max_depth": 4
+          },
+          "template": "{{ .Path }} ",
+          "foreground": "p:white",
+          "type": "path",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "template": "{{ if gt .Code 0 }}<p:red>{{ else }}<p:foreground>{{ end }}{{ if eq .OS \"windows\" }}>{{ else }}${{ end }} </>",
+          "foreground": "p:foreground",
+          "type": "status",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3
+}

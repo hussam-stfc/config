@@ -1,0 +1,7 @@
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */home/wpk97179/src/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/home/wpk97179/src/fzf/bin"
+fi
+
+source <(fzf --zsh)
